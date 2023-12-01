@@ -1,0 +1,95 @@
+Q.1 Write a shell program to find whether arugument is positive or
+negative.
+Program:
+#!/usr/bin/bash
+echo "Enter any integer:"
+read a
+if [ $a -lt 0 ]
+then echo "$a is a negative integer!"
+elif [ $a -eq 0 ]
+then echo "$a is neither a positive nor negative integer!"
+else
+echo "$a is a positive integer!"
+fi
+Output:
+
+Q.2 Write arithmetic calculation program by using ‘case’ structure.
+Program:
+#!/bin/bash
+echo "Enter any two numbers:"
+read a b
+echo "Which operation you have to perform?"
+echo -e "1.Addition\n2.Subtraction\n3.Multiplication\n4.Division"
+echo "Make your selection:"
+read c
+case "$c" in
+"1") echo $a + $b = $[$a + $b]
+;;
+"2") echo $a - $b = $[$a - $b]
+;;
+"3") echo $a x $b = $[$a * $b]
+;;
+"4") echo $"scale=2; $a / $b"|bc
+;;
+*) echo Invalid Choice ;;
+esac
+Output:
+
+Q.3 Write a shell program to calculate the factorial of given number. Program:
+#!/bin/bash
+fact()
+{
+echo "Enter the number:"
+read c
+res=1
+for((i=1;i<=$c;i++));
+do
+let res=$[$res * $i]
+done
+echo "Factorial of $c : $res "
+}
+fact
+Output:
+
+Q.4 Write a shell program to check whether string is palindrome or
+not.
+Program:
+#!/bin/bash
+palindrome() {
+local input=$1
+len=${#input}
+rev=""
+for ((i=$len-1;i>=0;i--))
+do
+rev="$rev${input:$i:1}"
+done
+if [ "$input" = "$rev" ];
+then
+echo The string is a palindrome!
+else
+echo The string is not a palindrome!
+fi
+}
+echo -n "Enter a string: "
+read str
+palindrome "$str"
+Output:
+
+Q.5 Write a shell program to check whether the given number is
+prime or not.
+Program:
+#!/bin/bash
+prime()
+{
+local a=("$@")
+let n=`expr $a/2`
+for((i=2;i<=$n;i++));
+do
+if [ `expr $a % $i` -eq 0 ]
+then echo $a is not a prime number. exit
+fi
+done
+echo $a is a prime number. }
+echo Enter any integer:
+read c
+prime "${c}"
