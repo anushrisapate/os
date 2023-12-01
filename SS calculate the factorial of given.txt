@@ -1,0 +1,14 @@
+//to calculate the factorial of given number. Program:
+#!/bin/bash
+fact()
+{
+echo "Enter the number:"
+read c
+res=1
+for((i=1;i<=$c;i++));
+do
+let res=$[$res * $i]
+done
+echo "Factorial of $c : $res "
+}
+fact

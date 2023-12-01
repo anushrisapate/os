@@ -1,0 +1,22 @@
+SS string is palindrome or
+not.
+Program:
+#!/bin/bash
+palindrome() {
+local input=$1
+len=${#input}
+rev=""
+for ((i=$len-1;i>=0;i--))
+do
+rev="$rev${input:$i:1}"
+done
+if [ "$input" = "$rev" ];
+then
+echo The string is a palindrome!
+else
+echo The string is not a palindrome!
+fi
+}
+echo -n "Enter a string: "
+read str
+palindrome "$str"

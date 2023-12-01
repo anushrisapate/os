@@ -1,0 +1,12 @@
+arugument is positive or negative.
+Program:
+#!/usr/bin/bash
+echo "Enter any integer:"
+read a
+if [ $a -lt 0 ]
+then echo "$a is a negative integer!"
+elif [ $a -eq 0 ]
+then echo "$a is neither a positive nor negative integer!"
+else
+echo "$a is a positive integer!"
+fi

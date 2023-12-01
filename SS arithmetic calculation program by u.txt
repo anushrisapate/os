@@ -1,0 +1,20 @@
+//arithmetic calculation program by using ‘case’ structure.
+Program:
+#!/bin/bash
+echo "Enter any two numbers:"
+read a b
+echo "Which operation you have to perform?"
+echo -e "1.Addition\n2.Subtraction\n3.Multiplication\n4.Division"
+echo "Make your selection:"
+read c
+case "$c" in
+"1") echo $a + $b = $[$a + $b]
+;;
+"2") echo $a - $b = $[$a - $b]
+;;
+"3") echo $a x $b = $[$a * $b]
+;;
+"4") echo $"scale=2; $a / $b"|bc
+;;
+*) echo Invalid Choice ;;
+esac
