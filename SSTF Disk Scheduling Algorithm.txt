@@ -45,3 +45,81 @@ void main()
     printf("Total seek operations : %.0f",mov);
     printf("\nAverage seek length : %.2f\n",mov/n);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*/*Disk scheduling is a key component of an operating system that manages the order in which disk I/O requests are serviced by the disk. The goal is to optimize the movement of the disk arm and reduce the overall access time. The disk arm is the component of a disk drive that reads or writes data on the disk surface.
+
+Here are some common types of disk scheduling algorithms:
+
+1. **FCFS (First-Come-First-Serve):**
+   - In FCFS, disk I/O requests are serviced in the order they arrive.
+   - It's a simple approach, but it may lead to poor performance, especially if there are requests scattered across the disk, causing a lot of arm movement.
+
+2. **SSTF (Shortest Seek Time First):**
+   - SSTF selects the request with the shortest seek time (the distance between the current arm position and the track where the data is located).
+   - It aims to minimize the arm movement and can be more efficient than FCFS. However, it may result in starvation (some requests may never get serviced if there are always requests with shorter seek times).
+
+3. **SCAN (Elevator) Algorithm:**
+   - SCAN moves the disk arm in one direction (e.g., from the outermost track to the innermost track) and services requests along the way.
+   - When the arm reaches the end, it reverses direction.
+   - This approach helps prevent starvation and ensures that requests from all parts of the disk are eventually serviced.
+
+4. **C-SCAN (Circular SCAN):**
+   - C-SCAN is similar to SCAN but limits arm movement to one direction (e.g., always from the outermost track to the innermost track).
+   - Once the arm reaches the innermost track, it jumps back to the outermost track without servicing requests in the reverse direction.
+   - This reduces the variation in service times for requests.
+
